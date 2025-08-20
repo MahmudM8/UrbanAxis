@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanAxis | Construction </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ashy-yellow: #FFD700;
+            --ashy-yellow-light: #ffdf33;
+            --ashy-yellow-dark: #e6c200;
+            --black: #121212;
+            --dark-gray: #1e1e1e;
+            --medium-gray: #2d2d2d;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--light-gray);
+            background-color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Top Bar */
+        
+        
+        
+        
+        /* Navigation - Integrated with Hero */
+        header {
+            background-color: transparent;
+            position: fixed;
+            width: 100%;
+            top: 40px; /* Height of top bar */
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        .header-scrolled {
+            background-color: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            top: 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--ashy-yellow);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--white);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 17px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--ashy-yellow);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--ashy-yellow);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            transition: all 0.3s;
+        }
+        
+        /* Hero Section - Integrated with Nav */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('IMG_9657.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 120px; /* Space for the fixed header */
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            animation: fadeIn 1s ease-out;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light-gray);
+        }
+        
+        .hero-btn {
+            background-color: var(--ashy-yellow);
+            color: var(--black);
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .hero-btn:hover {
+            background-color: var(--ashy-yellow-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Highlights Section */
+        .highlights {
+            padding: 80px 0;
+            background-color: var(--dark-gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--ashy-yellow);
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .highlight-item {
+            text-align: center;
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+        
+        .highlight-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .highlight-icon {
+            font-size: 3rem;
+            color: var(--ashy-yellow);
+            margin-bottom: 20px;
+        }
+        
+        .highlight-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--black);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--ashy-yellow);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: var(--ashy-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-img i {
+            font-size: 4rem;
+            color: var(--black);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Team & Partners */
+        .team-partners {
+            padding: 80px 0;
+            background-color: var(--dark-gray);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .team-member {
+            background-color: var(--black);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-img {
+            height: 250px;
+            background-color: var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .team-img i {
+            font-size: 5rem;
+            color: var(--ashy-yellow);
+        }
+        
+        .team-info {
+            padding: 20px;
+        }
+        
+        .partners {
+            text-align: center;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            height: 100px;
+            background-color: var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .partner-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .partner-logo i {
+            font-size: 2.5rem;
+            color: var(--ashy-yellow);
+        }
+        
+        /* Projects Section - Updated with images */
+        .projects {
+            padding: 80px 0;
+            background-color: var(--black);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background-color: var(--ashy-yellow);
+        }
+        
+        .stat-item:hover h3, .stat-item:hover p {
+            color: var(--black);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--ashy-yellow);
+            margin-bottom: 10px;
+        }
+        
+        .stat-item:hover .stat-number {
+            color: var(--black);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--dark-gray);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial {
+            background-color: var(--black);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 1s;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--ashy-yellow);
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--medium-gray);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .testimonial-dot.active {
+            background-color: var(--ashy-yellow);
+        }
+        
+        /* Fleet Section - Updated with images */
+        .fleet {
+            padding: 80px 0;
+            background-color: var(--black);
+        }
+        
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .equipment-card {
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            height: 320px;
+        }
+        
+        .equipment-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .equipment-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .equipment-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .equipment-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--dark-gray);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--ashy-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            color: var(--black);
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background-color: var(--black);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--dark-gray);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 4px;
+            color: var(--white);
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--ashy-yellow);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--ashy-yellow);
+            color: var(--black);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--ashy-yellow-light);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--ashy-yellow);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--ashy-yellow);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--ashy-yellow);
+        }
+        
+        .social-icon i {
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+        
+        .social-icon:hover i {
+            color: var(--black);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--ashy-yellow);
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            background-color: var(--ashy-yellow-light);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .contact-info {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hamburger {
+                display: flex;
+            z-index: 1001;
+            position: relative;
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: rgba(18, 18, 18, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 100px 20px;
+                gap: 30px;
+                transition: right 0.4s ease;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-content {
+                padding: 30px;
+                margin-top: 30px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                top: 70px; /* Adjusted for mobile */
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .hero {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Navigation - Integrated with Hero -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Urban<span>Axis</span></a>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section with Integrated Navigation -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Building the Future with Strength & Innovation</h1>
+                <p>Expert construction services with a commitment to excellence, safety, and innovation for all your building needs.</p>
+                <a href="#contact" class="hero-btn">Request Free Consultation</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Highlights Section -->
+    <section class="highlights" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="highlights-grid">
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Health & Safety First</h3>
+                    <p>We prioritize safety above all else, ensuring every project meets the highest safety standards.</p>
+                </div>
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Experienced Experts</h3>
+                    <p>Our team brings decades of combined experience to deliver exceptional results.</p>
+                </div>
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>We're Innovative</h3>
+                    <p>Utilizing the latest technology and methods to deliver efficient, cutting-edge solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-img">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Road Construction</h3>
+                        <p>Comprehensive road construction services from planning to execution with quality materials.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-img">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Borehole Digging</h3>
+                        <p>Professional borehole drilling services for reliable water access solutions.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-img">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Building Construction</h3>
+                        <p>Residential and commercial construction tailored to your specific requirements.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-img">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Electrical & Mechanical Works</h3>
+                        <p>Expert installation and maintenance of electrical and mechanical systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team & Partners Section -->
+    <section class="team-partners" id="team">
+        <div class="container">
+            
+            
+            <div class="partners fade-in" id="partners">
+                <h3 class="section-title">Our Partners</h3>
+                <div class="partners-grid">
+                    <div class="partner-logo">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="partner-logo">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="partner-logo">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="partner-logo">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="partner-logo">
+                        <i class="fas fa-toolbox"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section - Updated with images -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Our Projects</h2>
+            <div class="stats">
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="50">0</div>
+                    <h3>Roads Constructed</h3>
+                    <p>Across the region</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="200">0</div>
+                    <h3>Boreholes Dug</h3>
+                    <p>Providing clean water</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="75">0</div>
+                    <h3>Buildings Completed</h3>
+                    <p>Residential & commercial</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="150">0</div>
+                    <h3>Happy Clients</h3>
+                    <p>Satisfied with our work</p>
+                </div>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card fade-in" style="background-image: url('IMG_9667.JPG');">
+                    <div class="project-overlay">
+                        <h3>City Road Expansion</h3>
+                        <p>20km highway construction with modern drainage systems</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in" style="background-image: url('IMG_9668.JPG');">
+                    <div class="project-overlay">
+                        <h3>Office Complex</h3>
+                        <p>10-story commercial building with sustainable features</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in" style="background-image: url('IMG_9669.JPG');">
+                    <div class="project-overlay">
+                        <h3>Community Water Project</h3>
+                        <p>30 boreholes for rural community water access</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Satisfied Clients</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">"UrbanAxis delivered our office complex ahead of schedule and within budget. Their attention to detail and professional approach made the entire process smooth and stress-free."</p>
+                    <p class="testimonial-author">-TechCorp </p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The road construction project handled by UrbanAxis has dramatically improved transportation in our community. Their team was professional, efficient, and minimally disruptive."</p>
+                    <p class="testimonial-author">-F.G</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"We've partnered with UrbanAxis on multiple projects over the years. Their consistent quality, adherence to safety, and innovative solutions keep us coming back."</p>
+                    <p class="testimonial-author">-ConstructPlus Director</p>
+                </div>
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" data-index="0"></div>
+                    <div class="testimonial-dot" data-index="1"></div>
+                    <div class="testimonial-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Fleet Section - Updated with images -->
+    <section class="fleet">
+        <div class="container">
+            <h2 class="section-title">Our Fleet & Equipment</h2>
+            <div class="fleet-grid">
+                <div class="equipment-card fade-in">
+                    <div class="equipment-img" style="background-image: url('IMG_9659.JPG');">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Dump Trucks</h3>
+                        <p>20-ton capacity for efficient material transport</p>
+                    </div>
+                </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-img" style="background-image: url('IMG_9655.JPG');">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Excavators</h3>
+                        <p>Heavy-duty excavators for all digging needs</p>
+                    </div>
+                </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-img" style="background-image: url('IMG_9660.JPG');">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Cranes</h3>
+                        <p>High-capacity cranes for heavy lifting</p>
+                    </div>
+                </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-img" style="background-image: url('IMG_9664.JPG');">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Bulldozers</h3>
+                        <p>Powerful bulldozers for earthmoving tasks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-info-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>27 Ave, BC 17545</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+ (234) 801-0567-890</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@buildstrong.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Business Hours</h3>
+                            <p>Mon-Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>UrbanAxis</h3>
+                    <p>Strong Foundations, Strong Future.</p>
+                    <p>Building excellence since 2005 with commitment to quality, safety, and innovation.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Road Construction</a></li>
+                        <li><a href="#">Borehole Digging</a></li>
+                        <li><a href="#">Building Construction</a></li>
+                        <li><a href="#">Electrical Works</a></li>
+                        <li><a href="#">Mechanical Works</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 27 Ave, BC 17545</p>
+                    <p><i class="fas fa-phone"></i> + (234) 801-0567-8901</p>
+                    <p><i class="fas fa-envelope"></i> info@buildstrong.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BuildStrong Construction. All Rights Reserved.<br> Designed by M8-Web.Dev</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="#" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+    
+    <script>
+        // Sticky Navigation
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+            
+            // Scroll to top button visibility
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 500) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+        
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Close mobile nav when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+        
+        // Animated counters
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+        
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = Math.ceil(target / speed);
+                
+                if (count < target) {
+                    counter.innerText = Math.min(count + increment, target);
+                    setTimeout(() => animateCounters(), 1);
+                }
+            });
+        }
+        
+        // Testimonial slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                showTestimonial(index);
+            });
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // Scroll animations
+        function checkScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+        
+        // Initialize counters when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelectorAll('.stats').forEach(stat => {
+            observer.observe(stat);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
